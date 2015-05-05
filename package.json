@@ -1,7 +1,7 @@
 {
   "name": "svg-store-loader",
   "version": "1.0.0",
-  "description": "Load an SVG store and append it to the DOM",
+  "description": "Load an SVG store and add it to the DOM",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

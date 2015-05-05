@@ -2,7 +2,7 @@
 
 # SVG Store Loader
 
-Load an [SVG Store](#) (asynchronously) and append it to the DOM.
+Load an [SVG Store](#) (asynchronously) and add it to the DOM.
 
 Require the module:
 
@@ -37,9 +37,25 @@ Usage Example:
 
 ***
 
+### README TODO
 
-* dependencies (svg file, preferably an svg store >>> link to CSS tricks article, gulp/grunt plugins)
+* dependencies (svg file, preferably an svg store)
+* add demo svg snippet (create svg with symbols, get one from grunt svg store)
+* link to CSS tricks article, gulp/grunt svg store plugins
 * usage (Common JS, AMD, Good ol' script tag)
+* Checkout `umd-wrapper` directory in experiments
 * tips ---> hide your svg store, suggested css
 * browser support (not extensive)
 * license
+
+
+* https://github.com/FWeinb/grunt-svgstore/
+* https://css-tricks.com/svg-sprites-use-better-icon-fonts/
+
+
+***
+
+## License
+
+MIT
+
