@@ -5,7 +5,7 @@
   "authors": [
     "Zee Zali"
   ],
-  "description": "Load an SVG store and append it to the DOM",
+  "description": "Load an SVG store and add it to the DOM",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -13,5 +13,10 @@
     "bower_components",
     "test",
     "tests"
+  ],
+  "keywords": [
+    "svg",
+    "svg-store",
+    "svg-sprite"
   ]
 }
