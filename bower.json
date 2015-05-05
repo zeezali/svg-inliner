@@ -1,0 +1,17 @@
+{
+  "name": "svg-store-loader",
+  "main": "index.js",
+  "version": "1.0.0",
+  "authors": [
+    "Zee Zali"
+  ],
+  "description": "Load an SVG store and append it to the DOM",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
