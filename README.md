@@ -1,17 +1,37 @@
 
 
-# SVG Store Loader
+# SVG Injector
 
-Load an [SVG Store](#) (asynchronously) and add it to the DOM.
+A utility module that allows you to inject SVG elements into the DOM and load SVG Stores.
 
-Require the module:
+If you're unfamiliar with the concpet of "SVG Stores" (or "SVG Sprites" as some call them), read this [CSS-Tricks article](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) and checkout this [Grunt plugin](https://github.com/FWeinb/grunt-svgstore/).
 
-    var SVGStoreLoader = require('svg-store-loader');
 
+## Install
+
+*CommonJS*
+
+    var svgInjector = require('svg-injector');
+
+
+*AMD*
+
+    define(['svg-injector'], function(svgInjector) { }
+
+
+*Good ol' script tag*
+
+    <script src="svgInjector.js"></script>
+
+
+
+## Load an SVG Store
+
+Load an [SVG Store](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) (asynchronously) and add it to the DOM.
 
 Options:
 
-    new SVGStoreLoader({
+    svgInjector.loadStore({
         url: 'string',
         success: function
         error: function
@@ -28,54 +48,106 @@ Usage Example:
         console.log('svg store loaded!');
     };
 
-    var loader = new SVGStoreLoader({
-        url: 'main-svg-store.svg',
+    svgInjector.loadStore({
+        url: 'svg/main-svg-store.svg',
         success: onSuccess,
         error: onLoadError
     });
 
+Example of what an SVG Store may look like:
 
-***
+    <svg viewBox="0 0 100 100">
+        <symbol viewBox="0 0 40 30" id="svg-rectangle">
+            <title>Rectangle</title>
+            <rect width="40" height="30"/>
+        </symbol>
 
-### README TODO
+        <symbol viewBox="0 0 25.693 25.693" id="svg-poly-1">
+            <title>Polygon</title>
+            <polygon points="7.526,25.693 0.001,18.168 0.001,7.525 7.526,0 18.167,0 25.694,7.525 25.694,18.168 18.167,25.693"/>
+        </symbol>
 
-* [x] change folder name to `svg-injector`
-* [x] update package.json and bower.json
-* [x] update package.json "main"
-* [x] this module SHOULDN'T use constructor pattern
-* [x] think of it as a utility module
-* [x] should be an object with a bunch of methods
-* [x] combine inline-svg-injector + svg-store-loader into one unified utility
-* [x] `svgInjector` {}
-* [x] requestAnimationFrame fallback 
-
-* describe the utility
-* link to CSS tricks article, gulp/grunt svg store plugins
-* usage (Common JS, AMD, Good ol' script tag)
-* dependencies for loading svg store (svg file, preferably an svg store)
-* add svg store code snippet (example of one)
-* svg-store-loader example "Load an SVG Store"
-* inline-svg-injector example "Inject inline svgs"
-* checkout readme that already exists for inline-svg-injector (in bda project)
-* html/js code snippets
-* Checkout `umd-wrapper` directory in experiments
-* tips ---> hide your svg store, suggested css
-* browser support (not extensive)
-* license
-
-* create a nice and **simple** demo page
-* heading, description, link to repo, examples grid
-* label examples with title + <pre> code block
-* make examples look pretty later
+        <symbol viewBox="0 0 39.719 39.718" id="svg-circle">
+            <title>Circle</title>
+            <circle cx="19.859" cy="19.858" r="19.859"/>
+        </symbol>
+    </svg>
 
 
-* https://github.com/FWeinb/grunt-svgstore/
-* https://css-tricks.com/svg-sprites-use-better-icon-fonts/
+
+## Inject Inline SVG elements
+
+Inject SVG elements into DOM nodes.
+
+An alternative to using the `<use xlink:href="#svg-my-icon">` technique.
+
+*`process()` method*
+
+    svgInjector.process('.css-selector');
+
+Usage Example:
+
+    // html element
+    <div class="inline-svg js-inline-svg" data-use="#svg-company-logo-01">Company Logo</div>
+
+    // js
+    svgInjector.process('.js-inline-svg');
 
 
-***
+
+## Inject *after* SVG Store is loaded
+
+A useful pattern for injecting SVG elements *after* the SVG Store has successfully loaded: 
+
+    svgInjector.loadStore({
+        url: '/svg/store-main.svg',
+        success: function() {
+            svgInjector.process('.js-inline-svg');
+        }
+    });
+
+
+## Browser Support (incomplete)
+
+IE9+
+
 
 ## License
 
 MIT
+
+
+
+
+***
+
+### TODO
+
+* [x] change folder name to `svg-injector`
+* [x] update package.json and bower.json
+* [x] combine inline-svg-injector + svg-store-loader into one unified utility
+* [x] `svgInjector` {}
+* [x] requestAnimationFrame fallback 
+
+* [x] describe the utility
+* [x] link to CSS tricks article, gulp/grunt svg store plugins
+* [x] install (Common JS, AMD, Good ol' script tag)
+* [x] dependencies for loading svg store (svg file, preferably an svg store)
+* [x] add svg store code snippet (example of one)
+* [x] svg-store-loader example "Load an SVG Store"
+* [x] inline-svg-injector example "Inject inline svgs"
+* [x] license
+* [ ] tips ---> hide your svg store, suggested css
+* [ ] browser support (not extensive)
+
+* [ ] create a nice and **simple** demo page
+* [ ] heading, description, link to repo, examples grid
+* [ ] label examples with title + <pre> code block
+* [ ] make examples look pretty later
+
+* [ ] npm publish
+* [ ] bower publish
+
+***
+
 
