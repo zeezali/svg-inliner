@@ -1,27 +1,41 @@
 
 
-# SVG Injector
+# SVG Inliner
 
-A utility module that allows you to load SVG Stores and inject SVG elements into the DOM.
+A utility module that allows you to load SVG Stores and inline SVG elements into the DOM.
 
 If you're unfamiliar with the concpet of "SVG Stores" (or "SVG Sprites" as some call them), read this [CSS-Tricks article](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) and checkout this [Grunt plugin](https://github.com/FWeinb/grunt-svgstore/).
 
 
 ## Install
 
+**npm**
+
+    npm install svg-inliner
+
+**bower**
+
+    bower install svg-inliner
+
+
+You can also download `svgInliner.js` manually.
+
+***
+
+
 *CommonJS*
 
-    var svgInjector = require('svg-injector');
+    var svgInliner = require('svg-inliner');
 
 
 *AMD*
 
-    define(['svg-injector'], function(svgInjector) { }
+    define(['svg-inliner'], function(svgInliner) { }
 
 
 *Good ol' script tag*
 
-    <script src="svgInjector.js"></script>
+    <script src="svgInliner.js"></script>
 
 
 
@@ -32,7 +46,7 @@ Load an [SVG Store](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) (
 Options:
 
 ```js
-svgInjector.loadStore({
+svgInliner.loadStore({
     url: 'string',
     success: function
     error: function
@@ -50,7 +64,7 @@ var onSuccess = function() {
     console.log('svg store loaded!');
 };
 
-svgInjector.loadStore({
+svgInliner.loadStore({
     url: 'svg/main-svg-store.svg',
     success: onSuccess,
     error: onLoadError
@@ -87,7 +101,7 @@ Inject inline SVG elements into DOM nodes.
 An alternative to using the `<use xlink:href="#svg-my-icon">` technique.
 
 ```js
-svgInjector.process('.css-selector');
+svgInliner.process('.css-selector');
 ```
 
 Usage Example:
@@ -97,7 +111,7 @@ Usage Example:
 <div class="inline-svg js-inline-svg" data-use="#svg-company-logo-01">Company Logo</div>
 
 // js
-svgInjector.process('.js-inline-svg');
+svgInliner.process('.js-inline-svg');
 ```
 
 
@@ -106,10 +120,10 @@ svgInjector.process('.js-inline-svg');
 A useful pattern for injecting SVG elements *after* the SVG Store has successfully loaded: 
 
 ```js
-svgInjector.loadStore({
+svgInliner.loadStore({
     url: '/svg/store-main.svg',
     success: function() {
-        svgInjector.process('.js-inline-svg');
+        svgInliner.process('.js-inline-svg');
     }
 });
 ```
@@ -131,11 +145,14 @@ MIT
 
 ### TODO
 
-* [x] change folder name to `svg-injector`
-* [x] update package.json and bower.json
 * [x] combine inline-svg-injector + svg-store-loader into one unified utility
-* [x] `svgInjector` {}
 * [x] requestAnimationFrame fallback 
+
+* [x] change folder name to `svg-inliner`
+* [x] `svgInliner` {}
+* [x] change filename + method name
+* [ ] update package.json and bower.json
+* [x] update examples
 
 * [x] describe the utility
 * [x] link to CSS tricks article, gulp/grunt svg store plugins

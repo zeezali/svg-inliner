@@ -16,7 +16,7 @@
     } else {
         // browser globals (root is window)
         // window.SvgStoreLoader
-        root.svgInjector = factory();
+        root.svgInliner = factory();
 
     }
 
@@ -94,7 +94,7 @@
      * utility object
      *
      */
-    var svgInjector = {
+    var svgInliner = {
         
         loader: SvgStoreLoader,
 
@@ -213,7 +213,7 @@
     };
 
 
-    return svgInjector;
+    return svgInliner;
 
 }));
 

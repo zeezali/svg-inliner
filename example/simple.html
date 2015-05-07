@@ -26,14 +26,14 @@
     <div data-use="#svg-poly-2" class="js-inline-svg"></div>
 
 
-    <script src="../svgInjector.js"></script>
+    <script src="../svgInliner.js"></script>
 
     <script>
 
-        svgInjector.loadStore({
+        svgInliner.loadStore({
             url: '../store-main.svg',
             success: function() {
-                svgInjector.process('.js-inline-svg')
+                svgInliner.process('.js-inline-svg')
             }
         });
         
