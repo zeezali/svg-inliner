@@ -1,6 +1,6 @@
 {
   "name": "svg-inliner",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Inline SVG elements in the DOM and load SVG Stores.",
   "main": "svgInjector.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "author": "Zee Zali",
   "license": "MIT",
-  "repository": "",
+  "repository": "zeezali/svg-inliner",
   "keywords": [
     "svg",
     "injector",
