@@ -2,9 +2,9 @@
 
 # SVG Inliner
 
-A utility module that allows you to load SVG Stores and inline SVG elements into the DOM.
+A utility module that allows you to load SVG Stores and inject SVG elements into the DOM.
 
-If you're unfamiliar with the concpet of "SVG Stores" (or "SVG Sprites" as some call them), read this [CSS-Tricks article](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) and checkout this [Grunt plugin](https://github.com/FWeinb/grunt-svgstore/).
+If you're unfamiliar with the concept of "SVG Stores" (or "SVG Sprites" as some call them), read this [CSS-Tricks article](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) and checkout this [Grunt plugin](https://github.com/FWeinb/grunt-svgstore/).
 
 
 ## Install
