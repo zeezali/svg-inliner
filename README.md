@@ -39,14 +39,31 @@ Usage Example:
 
 ### README TODO
 
-* dependencies (svg file, preferably an svg store)
-* add demo svg snippet (create svg with symbols, get one from grunt svg store)
+* [x] change folder name to `svg-injector`
+* [x] update package.json and bower.json
+* [x] update package.json "main"
+* [ ] this module SHOULDN'T use constructor pattern
+* [ ] think of it as a utility module
+* [ ] should be an object with a bunch of methods
+* [ ] combine inline-svg-injector + svg-store-loader into one unified utility
+* [ ] `svgInjector` {}
+
+* describe the utility
 * link to CSS tricks article, gulp/grunt svg store plugins
 * usage (Common JS, AMD, Good ol' script tag)
+* dependencies for loading svg store (svg file, preferably an svg store)
+* add svg store code snippet (example of one)
+* svg-store-loader example "Load an SVG Store"
+* inline-svg-injector example "Inject inline svgs"
 * Checkout `umd-wrapper` directory in experiments
 * tips ---> hide your svg store, suggested css
 * browser support (not extensive)
 * license
+
+* create a nice and **simple** demo page
+* heading, description, link to repo, examples grid
+* label examples with title + <pre> code block
+* make examples look pretty later
 
 
 * https://github.com/FWeinb/grunt-svgstore/

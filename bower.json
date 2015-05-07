@@ -1,11 +1,11 @@
 {
-  "name": "svg-store-loader",
+  "name": "svg-injector",
   "main": "index.js",
   "version": "1.0.0",
   "authors": [
     "Zee Zali"
   ],
-  "description": "Load an SVG store and add it to the DOM",
+  "description": "Inject SVG elements in the DOM and load SVG Stores.",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -16,7 +16,6 @@
   ],
   "keywords": [
     "svg",
-    "svg-store",
-    "svg-sprite"
+    "injector"
   ]
 }

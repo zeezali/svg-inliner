@@ -1,8 +1,8 @@
 {
-  "name": "svg-store-loader",
+  "name": "svg-injector",
   "version": "1.0.0",
-  "description": "Load an SVG store and add it to the DOM",
-  "main": "index.js",
+  "description": "Inject SVG elements in the DOM and load SVG Stores.",
+  "main": "svgInjector.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +11,6 @@
   "repository": "",
   "keywords": [
     "svg",
-    "svg-store",
-    "svg-sprite"
+    "injector"
   ]
 }
