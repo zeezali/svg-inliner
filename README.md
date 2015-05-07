@@ -2,7 +2,7 @@
 
 # SVG Injector
 
-A utility module that allows you to inject SVG elements into the DOM and load SVG Stores.
+A utility module that allows you to load SVG Stores and inject SVG elements into the DOM.
 
 If you're unfamiliar with the concpet of "SVG Stores" (or "SVG Sprites" as some call them), read this [CSS-Tricks article](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) and checkout this [Grunt plugin](https://github.com/FWeinb/grunt-svgstore/).
 
@@ -86,28 +86,33 @@ Inject inline SVG elements into DOM nodes.
 
 An alternative to using the `<use xlink:href="#svg-my-icon">` technique.
 
-    svgInjector.process('.css-selector');
+```js
+svgInjector.process('.css-selector');
+```
 
 Usage Example:
 
-    // html element
-    <div class="inline-svg js-inline-svg" data-use="#svg-company-logo-01">Company Logo</div>
+```js
+// html element
+<div class="inline-svg js-inline-svg" data-use="#svg-company-logo-01">Company Logo</div>
 
-    // js
-    svgInjector.process('.js-inline-svg');
-
+// js
+svgInjector.process('.js-inline-svg');
+```
 
 
 ## Inject *after* SVG Store is loaded
 
 A useful pattern for injecting SVG elements *after* the SVG Store has successfully loaded: 
 
-    svgInjector.loadStore({
-        url: '/svg/store-main.svg',
-        success: function() {
-            svgInjector.process('.js-inline-svg');
-        }
-    });
+```js
+svgInjector.loadStore({
+    url: '/svg/store-main.svg',
+    success: function() {
+        svgInjector.process('.js-inline-svg');
+    }
+});
+```
 
 
 ## Browser Support (incomplete)
