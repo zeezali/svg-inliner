@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Browser Globals</title>
+
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, minimal-ui">
+
+    <style>
+        .icon-star {
+            width: 10em;
+            fill: rgb(58, 58, 226);
+            margin: 3em;
+        }
+    </style>
+</head>
+<body ontouchstart="">
+    
+    <h2>SVG with &lt;use&gt;</h2>
+    <svg viewBox="0 0 30.109 28.637" class="icon-star">
+        <use xlink:href="#svg-star"></use>
+    </svg>
+    
+    <h2>Injection target</h2>
+    <div data-use="#svg-poly-2" class="js-inline-svg"></div>
+
+
+    <script src="../svgInjector.js"></script>
+
+    <script>
+
+        svgInjector.loadStore({
+            url: '../store-main.svg',
+            success: function() {
+                svgInjector.process('.js-inline-svg')
+            }
+        });
+        
+    </script>
+
+</body>
+</html>
