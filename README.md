@@ -31,57 +31,60 @@ Load an [SVG Store](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) (
 
 Options:
 
-    svgInjector.loadStore({
-        url: 'string',
-        success: function
-        error: function
-    });
-
+```js
+svgInjector.loadStore({
+    url: 'string',
+    success: function
+    error: function
+});
+```
 
 Usage Example:
     
-    var onLoadError = function() {
-        console.log('svg store failed to load.');
-    };
+```js
+var onLoadError = function() {
+    console.log('svg store failed to load.');
+};
 
-    var onSuccess = function() {
-        console.log('svg store loaded!');
-    };
+var onSuccess = function() {
+    console.log('svg store loaded!');
+};
 
-    svgInjector.loadStore({
-        url: 'svg/main-svg-store.svg',
-        success: onSuccess,
-        error: onLoadError
-    });
+svgInjector.loadStore({
+    url: 'svg/main-svg-store.svg',
+    success: onSuccess,
+    error: onLoadError
+});
+```
 
 Example of what an SVG Store may look like:
 
-    <svg viewBox="0 0 100 100">
-        <symbol viewBox="0 0 40 30" id="svg-rectangle">
-            <title>Rectangle</title>
-            <rect width="40" height="30"/>
-        </symbol>
+```xml
+<svg viewBox="0 0 100 100">
+    <symbol viewBox="0 0 40 30" id="svg-rectangle">
+        <title>Rectangle</title>
+        <rect width="40" height="30"/>
+    </symbol>
 
-        <symbol viewBox="0 0 25.693 25.693" id="svg-poly-1">
-            <title>Polygon</title>
-            <polygon points="7.526,25.693 0.001,18.168 0.001,7.525 7.526,0 18.167,0 25.694,7.525 25.694,18.168 18.167,25.693"/>
-        </symbol>
+    <symbol viewBox="0 0 25.693 25.693" id="svg-poly-1">
+        <title>Polygon</title>
+        <polygon points="7.526,25.693 0.001,18.168 0.001,7.525 7.526,0 18.167,0 25.694,7.525 25.694,18.168 18.167,25.693"/>
+    </symbol>
 
-        <symbol viewBox="0 0 39.719 39.718" id="svg-circle">
-            <title>Circle</title>
-            <circle cx="19.859" cy="19.858" r="19.859"/>
-        </symbol>
-    </svg>
+    <symbol viewBox="0 0 39.719 39.718" id="svg-circle">
+        <title>Circle</title>
+        <circle cx="19.859" cy="19.858" r="19.859"/>
+    </symbol>
+</svg>
+```
 
 
 
 ## Inject Inline SVG elements
 
-Inject SVG elements into DOM nodes.
+Inject inline SVG elements into DOM nodes.
 
 An alternative to using the `<use xlink:href="#svg-my-icon">` technique.
-
-*`process()` method*
 
     svgInjector.process('.css-selector');
 
@@ -142,11 +145,12 @@ MIT
 
 * [ ] create a nice and **simple** demo page
 * [ ] heading, description, link to repo, examples grid
-* [ ] label examples with title + <pre> code block
+* [ ] label examples with title + &lt;pre&gt; code block
 * [ ] make examples look pretty later
 
 * [ ] npm publish
 * [ ] bower publish
+* [ ] npm ignore
 
 ***
 
