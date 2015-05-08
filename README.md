@@ -11,11 +11,11 @@ If you're unfamiliar with the concept of "SVG Stores" (or "SVG Sprites" as some 
 
 **npm**
 
-    npm install svg-inliner
+    npm install svg-inliner-util
 
 **bower**
 
-    bower install svg-inliner
+    bower install svg-inliner-util
 
 
 You can also download `svgInliner.js` manually.
@@ -25,12 +25,12 @@ You can also download `svgInliner.js` manually.
 
 *CommonJS*
 
-    var svgInliner = require('svg-inliner');
+    var svgInliner = require('svg-inliner-util');
 
 
 *AMD*
 
-    define(['svg-inliner'], function(svgInliner) { }
+    define(['svg-inliner-util'], function(svgInliner) { }
 
 
 *Good ol' script tag*
