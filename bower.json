@@ -1,5 +1,5 @@
 {
-  "name": "svg-inliner",
+  "name": "svg-inliner-util",
   "main": "index.js",
   "version": "1.0.3",
   "authors": [
