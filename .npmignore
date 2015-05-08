@@ -1,0 +1,6 @@
+example/
+test/
+tmp/
+bower.json
+.jshintrc
+.travis.yml
