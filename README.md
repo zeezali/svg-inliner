@@ -11,11 +11,11 @@ If you're unfamiliar with the concept of "SVG Stores" (or "SVG Sprites" as some 
 
 **npm**
 
-    npm install svg-inliner-util
+    npm install svg-inliner-util --save
 
 **bower**
 
-    bower install svg-inliner-util
+    bower install svg-inliner-util --save
 
 
 You can also download `svgInliner.js` manually.
