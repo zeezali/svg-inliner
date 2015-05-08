@@ -96,21 +96,27 @@ Example of what an SVG Store may look like:
 
 ## Inject Inline SVG elements
 
-Inject inline SVG elements into DOM nodes.
-
 An alternative to using the `<use xlink:href="#svg-my-icon">` technique.
+
+Inject inline SVG elements into DOM nodes using the `process()` method.
+
+The `process()` method uses css selectors to find target HTML elements.
 
 ```js
 svgInliner.process('.css-selector');
 ```
 
+The HTML elements need to have a `data-use` attribute, which references an SVG element by **ID**.
+
 Usage Example:
 
-```js
-// html element
+```html
+<!-- html element example -->
 <div class="inline-svg js-inline-svg" data-use="#svg-company-logo-01">Company Logo</div>
+```
 
-// js
+```js
+// js 
 svgInliner.process('.js-inline-svg');
 ```
 
