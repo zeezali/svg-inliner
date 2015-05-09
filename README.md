@@ -147,39 +147,3 @@ MIT
 
 
 
-***
-
-### TODO
-
-* [x] combine inline-svg-injector + svg-store-loader into one unified utility
-* [x] requestAnimationFrame fallback 
-
-* [x] change folder name to `svg-inliner`
-* [x] `svgInliner` {}
-* [x] change filename + method name
-* [ ] update package.json and bower.json
-* [x] update examples
-
-* [x] describe the utility
-* [x] link to CSS tricks article, gulp/grunt svg store plugins
-* [x] install (Common JS, AMD, Good ol' script tag)
-* [x] dependencies for loading svg store (svg file, preferably an svg store)
-* [x] add svg store code snippet (example of one)
-* [x] svg-store-loader example "Load an SVG Store"
-* [x] inline-svg-injector example "Inject inline svgs"
-* [x] license
-* [ ] tips ---> hide your svg store, suggested css
-* [ ] browser support (not extensive)
-
-* [ ] create a nice and **simple** demo page
-* [ ] heading, description, link to repo, examples grid
-* [ ] label examples with title + &lt;pre&gt; code block
-* [ ] make examples look pretty later
-
-* [ ] npm publish
-* [ ] bower publish
-* [ ] npm ignore
-
-***
-
-
