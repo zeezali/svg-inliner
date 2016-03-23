@@ -4,7 +4,14 @@
 
 A utility module that allows you to load SVG Stores and inject SVG elements into the DOM.
 
-If you're unfamiliar with the concept of "SVG Stores" (or "SVG Sprites" as some call them), read this [CSS-Tricks article](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) and checkout this [Grunt plugin](https://github.com/FWeinb/grunt-svgstore/).
+If you're unfamiliar with the concept of "SVG Stores" (or "SVG Sprites" as some call them), read this [CSS-Tricks article](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) and checkout this [Grunt plugin](https://github.com/FWeinb/grunt-svgstore/) (or this [Gulp plugin](https://github.com/w0rm/gulp-svgstore).
+
+
+## Dependencies
+
+`svg-inliner-util` doesn't really have any dependencies but it does utilise [Promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+Depending on your browser support, you might need a Promise polyfill/ponyfill (e.g. [es6-promise](https://github.com/stefanpenner/es6-promise)).
 
 
 ## Install
@@ -21,7 +28,6 @@ If you're unfamiliar with the concept of "SVG Stores" (or "SVG Sprites" as some 
 You can also download `svgInliner.js` manually.
 
 ***
-
 
 *CommonJS*
 
@@ -46,28 +52,21 @@ Load an [SVG Store](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) (
 Options:
 
 ```js
-svgInliner.loadStore({
-    url: 'string',
-    success: function
-    error: function
+// Returns a Promise
+svgInliner.loadStore(assetURL)
 });
 ```
 
 Usage Example:
     
 ```js
-var onLoadError = function() {
-    console.log('svg store failed to load.');
-};
-
-var onSuccess = function() {
-    console.log('svg store loaded!');
-};
-
-svgInliner.loadStore({
-    url: 'svg/main-svg-store.svg',
-    success: onSuccess,
-    error: onLoadError
+svgInliner.loadStore('svg/main-svg-store.svg')
+    .then(() => {
+        console.log('svg store loaded!');
+    })
+    .catch(() => {
+        console.log('svg store failed to load.');
+    });
 });
 ```
 
@@ -112,7 +111,7 @@ Usage Example:
 
 ```html
 <!-- html element example -->
-<div class="inline-svg js-inline-svg" data-use="#svg-company-logo-01">Company Logo</div>
+<div class="inline-svg" data-use="#svg-company-logo-01" data-inline-svg>Company Logo</div>
 ```
 
 ```js
@@ -126,11 +125,13 @@ svgInliner.process('.js-inline-svg');
 A useful pattern for injecting SVG elements *after* the SVG Store has successfully loaded: 
 
 ```js
-svgInliner.loadStore({
-    url: '/svg/store-main.svg',
-    success: function() {
-        svgInliner.process('.js-inline-svg');
-    }
+svgInliner.loadStore('svg/main-svg-store.svg'))
+    .then(() => {
+        svgInliner.process('[data-inline-svg]');
+    })
+    .catch(() => {
+        console.error('error loading SVG Store');
+    });
 });
 ```
 
