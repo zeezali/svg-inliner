@@ -1,6 +1,6 @@
 
 
-# SVG Inliner
+# svg-inliner-util
 
 A utility module that allows you to load SVG Stores and inject SVG elements into the DOM.
 
