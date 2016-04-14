@@ -71,10 +71,14 @@
         return Math.random().toString(36).substring(7);
     }
 
-    function processElement(baseElem, classNames) {
+    function processElement(baseElem, useRAF, classNames) {
         // if baseElem is already configured, then pull out
-        if ( baseElem.className.indexOf(classNames.configured) > -1 ) {
+        if (baseElem.className.indexOf(classNames.configured) > -1) {
             return;
+        }
+
+        if (typeof useRAF === 'undefined') {
+            useRAF = true;
         }
 
         var targetSelector;
@@ -145,14 +149,14 @@
             baseElem.className += (' ' + configuredClassName);
         };
 
-        if (window.requestAnimationFrame) {
-            window.requestAnimationFrame( configureDOM );
+        if (useRAF && window.requestAnimationFrame) {
+            window.requestAnimationFrame(configureDOM);
         } else {
             configureDOM();
         }
     }
 
-    function processSelector(selector, classNames) {
+    function processSelector(selector, useRAF, classNames) {
         var elements = document.querySelectorAll(selector);
         var i;
         
@@ -162,7 +166,7 @@
         }
 
         for (i = 0; i < elements.length; i++) {
-            processElement(elements[i], classNames);
+            processElement(elements[i], useRAF, classNames);
         }
     }
 
@@ -177,8 +181,8 @@
     var svgInliner = {
         loadStore: loadStore,
 
-        process: function(selector) {
-            processSelector(selector, svgInlinerClassNames);
+        process: function(selector, useRAF) {
+            processSelector(selector, useRAF, svgInlinerClassNames);
         }
     };
 
