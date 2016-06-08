@@ -1,7 +1,7 @@
 {
   "name": "svg-inliner-util",
   "main": "index.js",
-  "version": "1.0.6",
+  "version": "2.1.0",
   "authors": [
     "Zee Zali"
   ],
