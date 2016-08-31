@@ -25,18 +25,16 @@
   <h2>Injection target</h2>
   <div data-use="#svg-poly-2" class="js-inline-svg"></div>
 
-
   <script src="../svgInliner.js"></script>
 
   <script>
-
-    svgInliner.loadStore({
-      url: '../store-main.svg',
-      success: function() {
-        svgInliner.process('.js-inline-svg')
-      }
-    });
-    
+    svgInliner.loadStore('svg/main-svg-store.svg')
+      .then(() => {
+        svgInliner.process('[data-inline-svg]', true);
+      })
+      .catch(() => {
+        console.error('error loading SVG Store');
+      })
   </script>
 
 </body>

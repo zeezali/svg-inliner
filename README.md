@@ -102,7 +102,7 @@ Inject inline SVG elements into DOM nodes using the `process()` method.
 The `process()` method uses css selectors to find target HTML elements.
 
 ```js
-svgInliner.process('.css-selector');
+svgInliner.process('.css-selector', true);
 ```
 
 The HTML elements need to have a `data-use` attribute, which references an SVG element by **ID**.
@@ -125,15 +125,30 @@ svgInliner.process('.js-inline-svg');
 A useful pattern for injecting SVG elements *after* the SVG Store has successfully loaded: 
 
 ```js
-svgInliner.loadStore('svg/main-svg-store.svg'))
+svgInliner.loadStore('svg/main-svg-store.svg')
     .then(() => {
-        svgInliner.process('[data-inline-svg]');
+        svgInliner.process('[data-inline-svg]', true);
     })
     .catch(() => {
         console.error('error loading SVG Store');
     });
 });
 ```
+
+## API
+
+#### `svgInliner.loadStore('svg/main-svg-store.svg')`
+
+Asynchronouly load a store asset and insert it into the DOM for further use.
+
+
+#### `svgInliner.process(selector, useRequestAnimationFrame)`
+
+Find DOM nodes and inject SVGs into them based on their attribute configuration.
+
+`useRequestAnimationFrame` is a boolean you can use to specify whether you want to use `window.requestAnimationFrame` when inserting SVG elements into the DOM.
+
+e.g. `svgInliner.process('[data-inline-svg]', true);`
 
 
 ## Browser Support (incomplete)
