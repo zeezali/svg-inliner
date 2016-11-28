@@ -1,6 +1,6 @@
 {
   "name": "svg-inliner-util",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Inline SVG elements in the DOM and load SVG Stores.",
   "main": "svgInliner.js",
   "author": {
