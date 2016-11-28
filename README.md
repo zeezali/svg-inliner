@@ -142,11 +142,13 @@ svgInliner.loadStore('svg/main-svg-store.svg')
 Asynchronouly load a store asset and insert it into the DOM for further use.
 
 
-#### `svgInliner.process(selector, useRequestAnimationFrame)`
+#### `svgInliner.process(selector, useRequestAnimationFrame, isFocusable)`
 
 Find DOM nodes and inject SVGs into them based on their attribute configuration.
 
-`useRequestAnimationFrame` is a boolean you can use to specify whether you want to use `window.requestAnimationFrame` when inserting SVG elements into the DOM.
+`useRequestAnimationFrame` is an optional boolean value you can use to specify whether you want to use `window.requestAnimationFrame` when inserting SVG elements into the DOM.
+
+`isFocusable` is an optional boolean value that allows you to specify whether you want your inline SVGs to be focusable or not. The default value for this option is `false`.
 
 e.g. `svgInliner.process('[data-inline-svg]', true);`
 

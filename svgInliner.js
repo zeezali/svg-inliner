@@ -71,7 +71,7 @@
     return Math.random().toString(36).substring(7);
   }
 
-  function processElement(baseElem, useRAF, classNames) {
+  function processElement(baseElem, useRAF, isFocusable, classNames) {
     // if baseElem is already configured, then pull out
     if (baseElem.className.indexOf(classNames.configured) > -1) {
       return;
@@ -79,6 +79,10 @@
 
     if (typeof useRAF === 'undefined') {
       useRAF = true;
+    }
+
+    if (typeof isFocusable === 'undefined') {
+      isFocusable = false;
     }
 
     var targetSelector;
@@ -113,6 +117,7 @@
     svgElem.setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
     svgElem.setAttribute('viewBox', viewbox);
     svgElem.setAttribute('role', 'img');
+    svgElem.setAttribute('focusable', isFocusable);
 
     // append each child node (of the target <symbol>) to the output svg
     // ensures the order of the child nodes is honoured
@@ -156,7 +161,7 @@
     }
   }
 
-  function processSelector(selector, useRAF, classNames) {
+  function processSelector(selector, useRAF, isFocusable, classNames) {
     var elements = document.querySelectorAll(selector);
     var i;
     
@@ -166,7 +171,12 @@
     }
 
     for (i = 0; i < elements.length; i++) {
-      processElement(elements[i], useRAF, classNames);
+      processElement(
+        elements[i],
+        useRAF,
+        isFocusable,
+        classNames
+      );
     }
   }
 
@@ -181,8 +191,13 @@
   var svgInliner = {
     loadStore: loadStore,
 
-    process: function(selector, useRAF) {
-      processSelector(selector, useRAF, svgInlinerClassNames);
+    process: function(selector, useRAF, isFocusable) {
+      processSelector(
+        selector,
+        useRAF,
+        isFocusable,
+        svgInlinerClassNames
+      );
     }
   };
 
