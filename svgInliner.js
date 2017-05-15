@@ -92,11 +92,11 @@
     var viewbox;
     var svgElem;
     var i;
-
     var titleNode;
     var titleID;
-
     var configureDOM;
+    var customRole;
+    var role;
 
     targetSelector = baseElem.getAttribute('data-use');
     targetElem = document.querySelector(targetSelector);
@@ -107,6 +107,12 @@
     }
 
     viewbox = targetElem.getAttribute('viewBox');
+    customRole = baseElem.getAttribute('data-role');
+    role = 'img';
+
+    if (customRole) {
+      role = customRole;
+    }
 
     // clone the target <symbol>
     targetElemClone = targetElem.cloneNode(true);
@@ -116,7 +122,7 @@
     svgElem = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svgElem.setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
     svgElem.setAttribute('viewBox', viewbox);
-    svgElem.setAttribute('role', 'img');
+    svgElem.setAttribute('role', role);
     svgElem.setAttribute('focusable', isFocusable);
 
     // append each child node (of the target <symbol>) to the output svg

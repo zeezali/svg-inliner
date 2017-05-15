@@ -114,6 +114,12 @@ Usage Example:
 <div class="inline-svg" data-use="#svg-company-logo-01" data-inline-svg>Company Logo</div>
 ```
 
+You can also specify the WAI-ARIA `role` to set on the injected SVG using a `data-role` attribute (the default role is "img").
+
+```html
+<div class="inline-svg" data-use="#svg-smiley-01" data-role="presentation" data-inline-svg>Smiley Face</div>
+```
+
 ```js
 // js 
 svgInliner.process('.js-inline-svg');
